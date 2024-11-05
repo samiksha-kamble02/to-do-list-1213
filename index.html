@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="page-wrap">
+      <div class="title-bar">
+        <h2>To-Do</h2>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <div class= "create-task-element">
+        <div class="input-and-save">
+          <input placeholder="Add your to-do task..." class= "task-element">
+          <button class="save-button"><i class="fa-solid fa-check"></i> Save</button>
+        </div>
+        <input type="date" min="2024-01-01" class="date-picker date-time" >
+        <input type="time" class="time-picker date-time">
+      </div>
+      <div class="saved-tasks">
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
