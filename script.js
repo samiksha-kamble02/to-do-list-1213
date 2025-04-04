@@ -32,23 +32,17 @@ const createObjectOfTasks = () => {
   }
 
   const taskValue = taskElement.value;
-  // console.log(taskValue);
   const dateValue = new Date(datePicker.value);
-  // console.log(datePicker.value);
   const date = dateValue.getDate();
   const monthIndex = dateValue.getMonth();
   const year = dateValue.getFullYear();
   const timeValue = timePicker.value;
-    // console.log(parseInt(timeValue));
   let isChecked = false;
 
   const dateKey = `c_${date}_${monthIndex}_${year}`;
-  // console.log("object created")
 
   addTask(dateKey, timeValue, taskValue, monthIndex, date, isChecked);
   localStorage.setItem('allSavedTasks', JSON.stringify(toDoListDataObject));
-  // console.log("saving toDoListDataObject to local storage", toDoListDataObject);
-  // console.log("task added");
 
   taskElement.value = "";
   datePicker.value = currDate;
@@ -56,9 +50,7 @@ const createObjectOfTasks = () => {
   saveButton.style.display = "none";
 }
 
-
 const addTask = (dateKey, timeValue, taskValue, monthIndex, date, isChecked) => {
-  // console.log("addTask called", dateKey, timeValue, taskValue, monthIndex, date, toDoListDataObject);
   let newDateElement;
   if (!Object.keys(toDoListDataObject).includes(dateKey)) {
     toDoListDataObject[dateKey] = [{ timeValue, taskValue }];
@@ -115,7 +107,6 @@ const addTask = (dateKey, timeValue, taskValue, monthIndex, date, isChecked) => 
 
   const taskTime = document.createElement('p');
   taskTime.classList.add('task-time');
-  // const taskTime = timeValue
   console.log(Number(timeValue.split(0,2)));
   const time = (Number(timeValue.slice(0,2))>=12)? `${Number(timeValue.slice(0,2))-12}${timeValue.slice(2)}PM`:`${timeValue}AM`;
   taskTime.innerHTML = `<i class="fa-regular fa-clock"></i> ${time}`;
@@ -131,7 +122,6 @@ const addTask = (dateKey, timeValue, taskValue, monthIndex, date, isChecked) => 
 
   taskDetails.appendChild(taskContent);
   taskDetails.appendChild(timeAndEditBlock);
-  // console.log(checkbox);
 
   if (isChecked) {
     checkbox.checked = true;
@@ -206,8 +196,6 @@ const addTask = (dateKey, timeValue, taskValue, monthIndex, date, isChecked) => 
 
     div.remove();
     toDoListDataObject[dateKey].forEach((task, index) => {
-      // console.log("task time",taskTime.innerHTML.split(" ")[3]);
-      // console.log("taskTime2", task.timeValue);
       if (taskTime.innerHTML.split(" ")[3] === task.timeValue) {
         toDoListDataObject[dateKey].splice(index, 1);
         console.log("to do list object", toDoListDataObject);
